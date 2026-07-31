@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Activity, Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTrialModal } from './TrialModalContext'
 
@@ -10,77 +10,64 @@ export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navLinks = [
-    { name: 'Architecture', href: '#features' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Docs', href: '#faq' },
+    { name: 'ARCHITECTURE', href: '#features' },
+    { name: 'PRICING', href: '#pricing' },
+    { name: 'DOCS', href: '#faq' },
   ]
 
-  const springTransition = {
-    type: 'spring',
-    stiffness: 400,
-    damping: 25,
-  }
-
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-[#0A0A0C]/80 border-b border-[#27272A] transition-colors duration-200">
+    <header className="sticky top-0 z-50 bg-[#0B0E14]/90 backdrop-blur-sm border-b border-[#21262D] transition-colors duration-150">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between relative">
 
-        {/* Brand Logo */}
+        {/* Minimalist Apex Wordmark Logo */}
         <a href="#" className="flex items-center gap-2.5 group min-h-[44px]">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6366F1] to-[#06B6D4] p-0.5 flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all duration-300">
-            <div className="w-full h-full bg-[#0A0A0C] rounded-[10px] flex items-center justify-center">
-              <Activity className="w-5 h-5 text-[#38BDF8] group-hover:scale-110 transition-transform duration-200" />
-            </div>
+          <div className="w-7 h-7 bg-[#21262D] border border-[#30363D] rounded flex items-center justify-center font-mono font-bold text-xs text-[#F0F6FC]">
+            A
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="text-xl font-bold tracking-tight text-[#F4F4F5]">Apex</span>
-            <span className="px-1.5 py-0.5 text-[10px] font-mono font-medium bg-[#18181B] text-[#A1A1AA] border border-[#27272A] rounded">
+          <div className="flex items-center gap-2">
+            <span className="text-lg font-bold tracking-tight text-[#F0F6FC]">Apex</span>
+            <span className="px-1.5 py-0.5 text-[10px] font-mono font-medium bg-[#161B22] text-[#8B949E] border border-[#21262D] rounded">
               v2.0
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links (with touch margins) */}
+        {/* Clear Uppercase Navigation Links */}
         <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2" aria-label="Main Navigation">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-semibold text-[#A1A1AA] hover:text-[#F4F4F5] transition-colors duration-150 relative py-2.5 px-1 min-h-[44px] flex items-center group"
+              className="text-xs font-mono font-semibold tracking-wider text-[#8B949E] hover:text-[#F0F6FC] transition-colors duration-150 py-2.5 px-1 min-h-[44px] flex items-center"
             >
               {link.name}
-              <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#6366F1] to-[#06B6D4] transition-all duration-200 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
         {/* Action CTAs */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <button
             onClick={openModal}
-            className="text-sm font-bold text-[#A1A1AA] hover:text-[#F4F4F5] transition-colors duration-150 px-4 py-2.5 min-h-[44px]"
+            className="bg-[#21262D] hover:bg-[#30363D] border border-[#30363D] rounded-md px-4 py-2 text-sm font-medium text-[#C9D1D9] hover:text-[#F0F6FC] transition-colors duration-150 min-h-[44px] flex items-center justify-center"
           >
             Log In
           </button>
 
-          <motion.button
-            whileTap={{ scale: 0.98 }}
-            transition={springTransition}
+          <button
             onClick={openModal}
-            className="relative group inline-flex items-center justify-center text-sm font-bold text-white px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#6366F1] to-[#4F46E5] hover:from-[#4F46E5] hover:to-[#06B6D4] transition-all duration-300 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/35 min-h-[44px]"
+            className="bg-[#238636] hover:bg-[#2EA043] rounded-md px-5 py-2 text-sm font-semibold text-white transition-all duration-150 min-h-[44px] flex items-center gap-1.5 active:scale-[0.98]"
           >
-            <span className="flex items-center gap-1.5">
-              Start Free Trial
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
-            </span>
-          </motion.button>
+            <span>Start Free Trial</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#A1A1AA] hover:text-[#F4F4F5] rounded-xl bg-[#18181B] border border-[#27272A] min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="p-2 text-[#8B949E] hover:text-[#F0F6FC] rounded-md bg-[#161B22] border border-[#21262D] min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -95,27 +82,27 @@ export const Header: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-b border-[#27272A] bg-[#0A0A0C]/95 backdrop-blur-xl px-4 pt-2 pb-6 space-y-3"
+            className="md:hidden border-b border-[#21262D] bg-[#0B0E14] px-4 pt-2 pb-6 space-y-3"
           >
-            <div className="flex flex-col space-y-1.5 pt-2">
+            <div className="flex flex-col space-y-1 pt-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-3 rounded-lg text-base font-semibold text-[#A1A1AA] hover:text-[#F4F4F5] hover:bg-[#18181B] min-h-[44px] flex items-center"
+                  className="px-3 py-2.5 rounded text-xs font-mono font-semibold tracking-wider text-[#8B949E] hover:text-[#F0F6FC] hover:bg-[#161B22] min-h-[44px] flex items-center"
                 >
                   {link.name}
                 </a>
               ))}
             </div>
-            <div className="pt-4 border-t border-[#27272A] flex flex-col space-y-3">
+            <div className="pt-4 border-t border-[#21262D] flex flex-col space-y-2.5">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false)
                   openModal()
                 }}
-                className="w-full text-center px-4 py-3 rounded-xl text-sm font-bold text-[#F4F4F5] bg-[#18181B] border border-[#27272A] min-h-[44px]"
+                className="w-full text-center px-4 py-2.5 rounded-md text-sm font-medium text-[#C9D1D9] bg-[#21262D] hover:bg-[#30363D] border border-[#30363D] min-h-[44px]"
               >
                 Log In
               </button>
@@ -124,7 +111,7 @@ export const Header: React.FC = () => {
                   setMobileMenuOpen(false)
                   openModal()
                 }}
-                className="w-full text-center px-4 py-3 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-[#6366F1] to-[#06B6D4] min-h-[44px]"
+                className="w-full text-center px-4 py-2.5 rounded-md text-sm font-semibold text-white bg-[#238636] hover:bg-[#2EA043] min-h-[44px]"
               >
                 Start Free Trial
               </button>

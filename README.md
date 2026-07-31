@@ -1,32 +1,57 @@
-# Apex - Enterprise-Grade Real-Time APM & Cost Intelligence
+# Apex - Real-Time APM & Cloud Cost Intelligence Platform
 
-Apex is a high-converting, production-ready landing page prototype for an enterprise B2B SaaS product catering to DevOps engineers, SREs, and CTOs. Engineered to the highest frontend architecture standards, it features ultra-low layout shift (CLS), pure React Server Component (RSC) route paths, dark luxury design tokens, fluid spring micro-interactions, and accessible modal overlays.
+## 1. Commercial Proposition & Value Architecture
+Apex is a high-performance, enterprise-grade Application Performance Monitoring (APM) and cloud cost reclamation platform built for modern microservices architectures. Utilizing Linux eBPF kernel probes, Apex provides zero-bytecode telemetry ingestion, root-cause diagnostics, and automated infrastructure spend optimization without runtime performance penalties.
 
----
+## 2. Tech Stack & Primary Dependencies
+- **Framework:** Next.js 14+ (App Router, Server Components)
+- **Language:** TypeScript 5+ (Strict Mode)
+- **Styling:** Tailwind CSS v3+ (Obsidian `#0B0E14` palette & hairline `#21262D` borders)
+- **Icons & Motion:** Lucide React (`lucide-react`), Framer Motion
 
-## Technical Stack & Dependency Versioning
-- **Framework**: Next.js 14.2.4 (App Router, Server Components)
-- **Language**: TypeScript 5.5.2 (Strict Mode Enabled)
-- **Animations**: Framer Motion 11.2.10 (Stiffness 400, Damping 25 spring parameters)
-- **Styling**: Tailwind CSS v3.4.4 (Obsidian black, dark zinc, eBPF cyan, and electric violet gradients)
-- **Icons**: Lucide React (`lucide-react`)
-
-
-## Execution Commands
+## 3. Quick Start & Execution Commands
 
 ```bash
-# 1. Dependency installation
+# Install exact dependencies
 npm install
 
-# 2. Local hot-reloading development server
+# Run local hot-reloading development server
 npm run dev
 
-# 3. TypeScript validation
+# Run TypeScript static validation
 npx tsc --noEmit
 
-# 4. Production optimized Next.js build
+# Trigger production build & static page analysis
 npm run build
 
-# 5. Production start command
+# Launch production server
 npm run start
+```
+
+## 4. Environment Setup (`.env.example`)
+
+```env
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+```
+
+## 5. Directory Tree Map
+
+```
+src/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── DashboardPreview.tsx
+│   ├── FAQ.tsx
+│   ├── FeatureGrid.tsx
+│   ├── Footer.tsx
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── Metrics.tsx
+│   ├── Pricing.tsx
+│   └── TrialModalContext.tsx
 ```

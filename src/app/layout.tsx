@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const viewport: Viewport = {
-  themeColor: '#0A0A0C',
+  themeColor: '#0B0E14',
   width: 'device-width',
   initialScale: 1,
 }
@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'Apex | Real-Time APM & Cloud Cost Intelligence Platform',
   description:
-    'Apex is the enterprise zero-overhead APM platform built for high-scale microservices. Instant eBPF tracing, AI root cause diagnostics, and cloud cost reclamation.',
+    'Apex is the enterprise zero-overhead APM platform built for high-scale microservices. Instant eBPF tracing, root-cause diagnostics, and cloud cost reclamation.',
   keywords: [
     'APM',
     'Application Performance Monitoring',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Apex Technologies Inc.' }],
   openGraph: {
     title: 'Apex | Real-Time APM & Cloud Cost Intelligence',
-    description: 'Observe everything. Ship 10x faster with zero-overhead eBPF tracing and AI diagnostics.',
+    description: 'Real-time observability for modern microservices with zero-overhead eBPF tracing.',
     url: 'https://apex.dev',
     siteName: 'Apex APM',
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: 'https://apex.dev/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Apex Real-Time APM Dashboard',
+        alt: 'Apex Real-Time APM Console',
       },
     ],
     locale: 'en_US',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Apex | Real-Time APM & Cloud Cost Intelligence',
-    description: 'Observe everything. Ship 10x faster with zero-overhead eBPF tracing.',
+    description: 'Real-time observability for modern microservices with zero-overhead eBPF tracing.',
     creator: '@apex_apm',
   },
 }
@@ -101,7 +101,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#0A0A0C] text-[#F4F4F5] antialiased selection:bg-[#6366F1]/30 selection:text-[#F4F4F5] font-sans">
+      <body className="bg-[#0B0E14] text-[#F0F6FC] antialiased selection:bg-[#10B981]/30 selection:text-[#F0F6FC] font-sans">
         <TrialModalProvider>
           {children}
         </TrialModalProvider>
